@@ -1,0 +1,84 @@
+* {
+	font-family: Comfortaa;
+}
+
+.logo {
+	font-style: normal;
+	font-weight: bold;
+	line-height: 45px;
+	font-size: 25px;
+	padding-left: 54px;
+}
+
+.login_flex{
+	display: flex;
+	width: 83vw;
+	justify-content: space-between;
+	align-content: center;
+	margin-left:60px;
+}
+
+.loginQuote {
+	width: 380px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 45px;
+	margin-bottom: 0px;
+}
+
+.login_info{
+	margin-top: 100px;
+}
+
+.youLogin {
+	color: #4FB2C0;
+}
+
+.bunjiIs {
+	width: 335px;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: normal;
+	line-height: 25px;
+	font-size: 16px;
+	color: rgba(28, 28, 28, 0.7);
+	margin-bottom: 40px;
+}
+
+.loginInput {
+	width: 20%;
+}
+
+.loginInput input {
+	display: block;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.frontImage{
+	width: 683px;
+	height: 680px;
+}
+
+input[type="email"], input[type="Password"] {
+	width: 280px;
+	height: 40px;
+	border-style: solid;
+	border-color: #797979;
+	border-width: 0.5px;
+	font-family: 'Open Sans';
+	font-size: 12px;
+}
+
+.loginInput button{
+	width: 290px;
+	height: 60px;
+	background-color: #4FB2C0;
+	border-radius: 5px;
+	border-style: none;
+	font-family: 'Open Sans';
+	font-size: 12px;
+	color: #fafafa;
+}

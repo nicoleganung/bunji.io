@@ -1,0 +1,80 @@
+.map{
+	z-index: 0;
+}
+
+#map{
+	position: static !important;
+}
+.wrapper{
+}
+
+.filter-map{
+	width: 255px;
+	left: 30px;
+	top: 165px;
+	
+	background-color: #FFFFFF;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+
+	position: absolute;
+}
+
+.filter-map h3{
+	font-family: Comfortaa !important;
+
+	font-weight: bold;
+	line-height: 20px;
+	font-size: 24px;
+
+	padding-left: 15px;
+}
+
+.category_p{
+	width: 132px;
+	height: 21px;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 12px;
+	
+	color: #1C1C1C;
+	
+	opacity: 0.5;
+	padding-left: 15px;
+}
+
+.checkboxes{
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+}
+
+.second_checkboxes{
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+}
+
+.checkboxes_lists{
+	display: flex;
+	flex-direction: row;
+	padding-left: 15px;
+	margin-bottom: 15px;
+}
+
+form input[type="checkbox"]{
+	margin-right: 10px;
+	border: 1px solid #797979 !important;
+	box-sizing: border-box !important;
+	border-radius: 5px !important;
+	margin-bottom: 15px;
+}
+
+form input[type="checkbox"]:checked{
+	background-color: #8CC4F8
+}
+
+.all_section, .study_section, .food_section, .coffee, .service_section, .gaming_section, .sports_section, .misc{
+	font-family: 'Open Sans';
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bunji</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans: 400, 600, 700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- logo corner -->
+<div class="logo">
+	<img class="logoImg" src='assets/images/Logo.svg' style='float:left;'>
+	<p class="logoText"> Bunji </p>
+</div>
+
+<!-- image -->
+<div class="login_flex">
+<img class="frontImage" src="assets/images/loginphoto.svg">
+
+<!-- login section -->
+<div class="login_info">
+<p class="loginQuote"> Putting the <span class="youLogin">you</span> into your <span class="youLogin">community.</span> </p>
+
+<p class="bunjiIs"> Bunji shows a real-time visualization of what is going on in the community around you. </p>
+
+<div id="login_div" class="loginInput">
+	<input type="email" placeholder="Email" id="email_field"/>
+	<input type="password" placeholder="Password" id="password_field"/>
+	<button onclick="login()">Login</button>
+</div>
+</div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBYoI0HmpLODAkZN25-_Q3rKpb3qpxn0Qk",
+    authDomain: "bunji-8a15a.firebaseapp.com",
+    databaseURL: "https://bunji-8a15a.firebaseio.com",
+    projectId: "bunji-8a15a",
+    storageBucket: "bunji-8a15a.appspot.com",
+    messagingSenderId: "410655351844"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="assets/javascript/index.js"> </script>
+
+</body>
+</html>

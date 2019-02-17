@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bunji Feed</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/filterStyle.css">
+
+</head>
+<body>
+<div class="wrapper">
+<div id="map"></div>
+<script>
+var map;
+
+var listOfEvents = [
+	{ name: 'Event1', time: '8:00AM', type: 'Study', latit: 43.0839286, longi: -72.6768026},
+	{ name: 'Event2', time: '9:00AM', type: 'Study', latit: 42.0839286, longi: -75.6768026},
+	{ name: 'Event3', time: '7:00AM', type: 'Study', latit: 42.0839286, longi: -76.6768026},
+	{ name: 'Event4', time: '6:00AM', type: 'Food' , latit: 42.0839286, longi: -78.6768026},
+	{ name: 'Event5', time: '5:00AM', type: 'Food' , latit: 42.0839286, longi: -79.6768026},
+	{ name: 'Event6', time: '4:00AM', type: 'Food' , latit: 43.0839286, longi: -71.6768026},
+	{ name: 'Event7', time: '3:00AM', type: 'Food' , latit: 41.0839286, longi: -77.6768026},
+	{ name: 'Event8', time: '2:00AM', type: 'Coffee', latit: 43.0839286, longi: -80.6768026},
+	{ name: 'Event9', time: '1:00AM', type: 'Coffee', latit: 46.0839286, longi: -85.6768026},
+	{ name: 'Event0', time: '9:00PM', type: 'Study', latit: 43.0839286, longi: -74.6768026}
+];
+
+var markerList = [];
+
+function initMap() {
+
+  	map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 43.0839286, lng: -77.6768026},
+    zoom: 16
+  });
+}
+
+function newCord(name, time, type, longitude, latitude){
+	listOfEvents.push({
+		name: name,
+		time: time,
+		type: type,
+		latit: parseFloat(latitude),
+		longi: parseFloat(longitude)
+	})
+}
+
+function addCord() {
+		//marker.setIcon(icon2);
+		var contentString;
+		markerList.forEach(function(element) {
+			element.setMap(null);
+		});
+		if(document.getElementById("allCheck").checked == true){
+			listOfEvents.forEach(function(element) {
+				contentString = '<h1 class="heading">' + element.name + '</h1><br/><p>' + element.time + '</p>'; 
+				addCordFR(element.latit, element.longi, contentString);
+			});
+		} 
+		if(document.getElementById("studyCheck").checked == true){
+			listOfEvents.forEach(function(element) {
+				if(element.type == "Study"){
+					ontentString = '<h1 class="heading">' + element.name + '</h1><br/><p>' + element.time + '</p>'; 
+					addCordFR(element.latit, element.longi, contentString);
+				}
+			});
+		}
+		if(document.getElementById("foodCheck").checked == true){
+			listOfEvents.forEach(function(element) {
+				if(element.type == "Food"){
+					ontentString = '<h1 class="heading">' + element.name + '</h1><br/><p>' + element.time + '</p>'; 
+					addCordFR(element.latit, element.longi, contentString);
+				}
+			});
+		}
+		if(document.getElementById("coffeeCheck").checked == true){
+			listOfEvents.forEach(function(element) {
+				if(element.type == "Coffee"){
+					ontentString = '<h1 class="heading">' + element.name + '</h1><br/><p>' + element.time + '</p>'; 
+					addCordFR(element.latit, element.longi, contentString);
+				}
+			});
+		}
+}
+
+function addCordFR(latit, longi, contentString){
+	console.log(latit + " " + longi);
+	var pos = {lat: latit, lng: longi};
+	var marker = new google.maps.Marker({position: pos, map: map});
+	markerList.push(marker);
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
+	console.log(contentString);
+	marker.addListener('click', function() {
+		infowindow.open(map, marker);
+	});
+	marker.addListener('mouseout', function() {
+		infowindow.close(map, marker);
+	});
+	setTimeout(function(){return true;},30000);
+}
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLTXTtfKv_nRm3j8V_w8MusqyIr1C1Ti8&callback=initMap" async defer></script>
+
+<div class="filter-map">
+	<h3>Filter Map</h3>
+
+	<p class="heading">CATEGORY<p>
+
+<div class="checkbox_lists">
+	<form>
+  		<input type="checkbox" id="allCheck" value="All">Select All<br>
+  		<input type="checkbox" id="studyCheck" value="Study">Study<br>
+  		<input type="checkbox" id="foodCheck" value="Food">Food<br>
+  		<input type="checkbox" id="coffeeCheck" value="Coffee">Coffee<br>
+	</form> 
+	<button class="applyFilter" onclick="addCord()">Apply Filters</button>
+
+</div>
+
+<div class="newCord">
+	<input type="text" id="cordName" name="name" placeholder="name"/>
+	<input type="text" id="cordTime" name="time" placeholder="time"/>
+	<input type="text" id="cordType" name="type" placeholder="type"/>
+	<input type="text" id="cordLong" name="longitude" placeholder="longitude"/>
+	<input type="text" id="cordLati" name="latitude" placeholder="latitude"/>
+	<button class="newCordButton" onclick="newCord(document.getElementById('cordName').value,document.getElementById('cordTime').value, document.getElementById('cordType').value, document.getElementById('cordLong').value, document.getElementById('cordLati').value)">New Cord</button>
+</div>
+
+</div>
+
+</body>
+</html>
